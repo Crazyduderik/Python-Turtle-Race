@@ -1,4 +1,5 @@
 import turtle
+import time
 
 from turtle import Turtle, Screen
 import random
@@ -24,8 +25,9 @@ def create_finish_line():
     finish_line.pendown()
     finish_line.goto(220, -150)
     finish_line.hideturtle()
-
+        
 screen = Screen()
+screen.bgcolor("lightblue")
 screen.setup(width=500,height=400)
 user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: ")
 colors = ["red", "orange", "blue", "green", "yellow", "purple"]
@@ -38,6 +40,9 @@ turtles = create_turtles(colors)
 create_finish_line()
 
 if user_bet:
+    for i in range(3,0,-1):
+        print(f"Race starts in {i} seconds")
+        time.sleep(1)
     is_race_on = True
 
 while is_race_on:
